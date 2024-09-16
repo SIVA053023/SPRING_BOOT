@@ -1,10 +1,10 @@
-package com.Flipkart.ReadtAPI;
+package com.Flipkart.RestAPI;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ReadtApiApplicationTests {
+class RestApiApplicationTests {
 
 	@Test
 	void contextLoads() {

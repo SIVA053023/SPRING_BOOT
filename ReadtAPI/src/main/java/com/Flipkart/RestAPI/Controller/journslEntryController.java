@@ -1,6 +1,6 @@
-package com.Flipkart.ReadtAPI.Controller;
+package com.Flipkart.RestAPI.Controller;
 
-import com.Flipkart.ReadtAPI.Entity.JournalEntry;
+import com.Flipkart.RestAPI.Entity.JournalEntry;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

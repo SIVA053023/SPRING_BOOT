@@ -1,5 +1,7 @@
-package com.Flipkart.ReadtAPI.Entity;
-// This is a Pojo class
+package com.Flipkart.RestAPI.Entity;
+
+// This is a POJO class
+
 public class JournalEntry {
     private Long id;
 
