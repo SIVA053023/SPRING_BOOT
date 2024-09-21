@@ -3,6 +3,7 @@ package com.example.Project1.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 @Document(collection="Employee_entries")
 public class Employees {
 

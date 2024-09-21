@@ -16,26 +16,23 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/u")
-public class UserController {
+public class    UserController {
 
     @Autowired
     private UserServices service;
 
     @GetMapping
-      public ResponseEntity<List<Users>> getAll(){
-        try{
-            List<Users> users=service.getALl();
-           return new ResponseEntity<>(users,HttpStatus.OK);
+    public ResponseEntity<List<Users>> getAll() {
+        try {
+            List<Users> users = service.getALl();
+            return new ResponseEntity<>(users, HttpStatus.OK);
         } catch (Exception e) {
-              return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
 
 
-
-
-
-//    @GetMapping("/Id/{myid}")
+    //    @GetMapping("/Id/{myid}")
 //    public ResponseEntity<Optional<Users>> findbyID(@PathVariable Integer myid){
 //        try {
 //            Optional<Users> one = service.getByid(myid);
@@ -57,7 +54,7 @@ public class UserController {
             // Assuming service.getByid(myid) returns a Users object or null if not found
             Users user = service.getByid(myid).orElse(null);
 
-            return new ResponseEntity<>(user,HttpStatus.OK);
+            return new ResponseEntity<>(user, HttpStatus.OK);
 
         } catch (Exception e) {
             // Handle any other exceptions with HTTP 500 INTERNAL SERVER ERROR
@@ -66,29 +63,29 @@ public class UserController {
     }
 
     @PostMapping
-  public String create(@RequestBody Users u){
+    public String create(@RequestBody Users u) {
         service.SaveEntry(u);
         return "user created succcessfully";
-  }
+    }
 
-      @PutMapping("/id/{myid}")
+    @PutMapping("/id/{myid}")
 
-      public String update(@RequestBody Users newUser,@PathVariable Integer myid){
-        Users old=service.getByid(myid).orElse(null);
-        if(old != null && newUser != null){
+    public String update(@RequestBody Users newUser, @PathVariable Integer myid) {
+        Users old = service.getByid(myid).orElse(null);
+        if (old != null && newUser != null) {
             old.setUsername(newUser.getUsername() != null && newUser.equals("") ? newUser.getUsername() : old.getUsername());
-            old.setCompany(newUser.getCompany() !=null && newUser.equals("") ? newUser.getCompany() : old.getCompany());
+            old.setCompany(newUser.getCompany() != null && newUser.equals("") ? newUser.getCompany() : old.getCompany());
             service.SaveEntry(old);
 
         }
         return "User updated successfully";
 
-      }
+    }
 
-      @DeleteMapping("/{myid}")
-        public String delete(@PathVariable Integer myid){
-            service.del(myid);
-            return "deleted successfully";
+    @DeleteMapping("/{myid}")
+    public String delete(@PathVariable Integer myid) {
+        service.del(myid);
+        return "deleted successfully";
     }
 
 
