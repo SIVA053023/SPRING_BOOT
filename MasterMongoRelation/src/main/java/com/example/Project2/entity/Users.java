@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection="Practice data")
 public class Users{
     @Id
-    private Integer id;
+    private Integer id;                          // ID is the Id of the user
     private String username;
     private String company;
 
